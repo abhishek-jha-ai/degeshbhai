@@ -51,8 +51,8 @@
       <section class="card" id="offer-form">
         <h2>Serious buyer inquiry</h2>
         <p class="form-note">
-          Please include a realistic opening offer and business intent. Low-effort
-          messages will be ignored.
+          Serious offers only. Minimum opening offer: <strong>$2,500 USD</strong>.
+          Low-effort messages will be ignored.
         </p>
 
         <form
@@ -79,7 +79,14 @@
             </label>
             <label>
               Opening offer (USD) *
-              <input type="number" name="offer_usd" min="100" step="100" required />
+              <input
+                type="number"
+                name="offer_usd"
+                min="2500"
+                step="100"
+                required
+                id="offer_usd"
+              />
             </label>
             <label>
               Intended use *
@@ -102,12 +109,15 @@
               placeholder="Share your planned use case and budget range."
             ></textarea>
           </label>
+          <p class="error-text" id="offerError" aria-live="polite"></p>
 
           <input type="hidden" name="source_page" value="dogeshbhai.com" />
           <input type="hidden" name="utm_source" id="utm_source" />
           <input type="hidden" name="utm_medium" id="utm_medium" />
           <input type="hidden" name="utm_campaign" id="utm_campaign" />
           <input type="hidden" name="visitor_id" id="visitor_id" />
+          <input type="hidden" name="offer_quality" id="offer_quality" value="valid" />
+          <input type="hidden" name="_next" value="https://dogeshbhai.com/thank-you.html" />
 
           <button class="btn btn-primary submit" type="submit">Send inquiry</button>
         </form>
