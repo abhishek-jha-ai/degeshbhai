@@ -1,30 +1,45 @@
 # dogeshbhai.com - Domain Sale Landing Page
 
-This is a conversion-focused landing page to help attract and qualify serious buyers.
+This project is now ready for Vercel deployment.
 
-## 1) Start using immediately
-- Point your domain DNS to your hosting provider (Vercel, Netlify, Cloudflare Pages, GitHub Pages).
-- Upload these files as your website root.
+## Files
+- `index.html`
+- `styles.css`
+- `script.js`
+- `vercel.json` (routing + basic security headers)
+- `.vercelignore`
 
-## 2) Enable real lead capture
-The form uses Formspree by default.
-- Create a form at https://formspree.io
-- Replace `your-form-id` in `index.html` with your real endpoint.
+## 1) Form endpoint (already configured)
+Your form action is set to:
+- `https://formspree.io/f/xeenrrnq`
 
-## 3) See who contacted you
-Each submission captures:
-- Name, work email, phone, company
-- Offer amount and intended use
-- UTM campaign tags
-- Visitor ID for repeat visitor tracking
+## 2) Deploy to Vercel
+1. Push this folder to a GitHub repository.
+2. In Vercel, click **Add New Project** and import that repo.
+3. Framework preset: **Other**.
+4. Build command: leave empty.
+5. Output directory: leave empty (root static files).
+6. Click **Deploy**.
 
-## 4) Price strategy to get better offers
-- Keep the page clean and premium, avoid "urgent sale" language.
-- Add a realistic floor in your negotiations, do not reveal your minimum in public.
-- List this domain on Afternic + Dan + Sedo + GoDaddy Auctions for broader buyer discovery.
-- Use escrow-only transfer to increase trust and close at higher prices.
+## 3) Connect your real domain in Vercel
+In Vercel project settings -> Domains, add:
+- `dogeshbhai.com`
+- `www.dogeshbhai.com`
 
-## 5) Optional upgrades
-- Add Google Analytics / Plausible for visitor tracking.
-- Add Calendly link for serious buyers above a minimum offer threshold.
-- Add a broker option for outbound sales.
+## 4) Update GoDaddy DNS
+Replace old Website Builder target with Vercel records:
+- Delete `A` record: `@ -> WebsiteBuilder Site`
+- Add `A` record: `@ -> 76.76.21.21`
+- Set `CNAME` record: `www -> cname.vercel-dns.com`
+
+Keep TTL as default (for example 1 hour).
+
+## 5) Verify after DNS propagation
+1. Open `https://dogeshbhai.com`
+2. Submit a test lead with name/email/offer
+3. Confirm lead appears in Formspree dashboard
+
+## 6) Optional conversion upgrades
+- Add Microsoft Clarity or Plausible analytics
+- Add auto-reply in Formspree
+- Add minimum-offer qualification text in hero section
